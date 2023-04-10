@@ -231,7 +231,7 @@ class Averager(object):
         
         outPts.append([np.int(xout), np.int(yout)])
         
-        tform = cv2.estimateRigidTransform(np.array([inPts]), np.array([outPts]), False)
+        tform,_ = cv2.estimateAffinePartial2D(np.array([inPts]), np.array([outPts]))
         
         return tform
 
